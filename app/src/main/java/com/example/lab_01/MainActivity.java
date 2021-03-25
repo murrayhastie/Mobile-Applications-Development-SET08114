@@ -5,29 +5,38 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.Date;
 
-public class MainActivity extends AppCompatActivity {
-
+public class MainActivity extends AppCompatActivity
+{
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button buttonB = (Button)findViewById(R.id.button);
-        buttonB.setOnClickListener(new View.OnClickListener(){
-            // Anonymous inner method called when buttonB clicked....
-            public void onClick(View v) {
+        CheckBox cbox1 = (CheckBox) findViewById(R.id.check_option_1);
+        cbox1.setOnClickListener(startListener);
 
-                TextView tv1 = (TextView)findViewById(R.id.date);
-                Log.d("FirstAppTag","onClick() called - start button");
-                Toast.makeText(MainActivity.this, "The Start button was clicked.",
-                        Toast.LENGTH_LONG).show();  //see below to find out more
-                tv1.setText(new Date().toString());
-            }
-        });
+        CheckBox cbox2 = (CheckBox) findViewById(R.id.check_option_2);
+        cbox2.setOnClickListener(startListener);
+
+        CheckBox cbox3 = (CheckBox) findViewById(R.id.check_option_3);
+        cbox3.setOnClickListener(startListener);
     }
+
+    private View.OnClickListener startListener = new View.OnClickListener()
+    {
+        public void onClick(View v)
+        {
+            CheckBox cbox1 = (CheckBox) findViewById(R.id.check_option_1);
+            if (cbox1.isChecked())
+            {
+                Toast.makeText(MainActivity.this, "Option 1", Toast.LENGTH_LONG).show();
+            }
+        }
+    };
 }
