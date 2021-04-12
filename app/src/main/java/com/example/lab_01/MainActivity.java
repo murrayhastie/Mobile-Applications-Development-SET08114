@@ -1,11 +1,13 @@
 package com.example.lab_01;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -36,15 +38,22 @@ public class MainActivity extends AppCompatActivity
 
             if (rb.getText().equals("Option 1"))
             {
-                iv.setImageResource(R.mipmap.hopewell_rocks);
+               // iv.setImageResource(R.mipmap.hopewell_rocks);
+                Intent activity0 = new Intent (MainActivity.this, Activity0.class);
+                startActivity(activity0);
+
             }
             else if (rb.getText().equals("Option 2"))
             {
-                iv.setImageResource(R.mipmap.niagara_falls);
+                // iv.setImageResource(R.mipmap.niagara_falls);
+                Intent activity1 = new Intent (MainActivity.this, Activity1.class);
+                startActivity(activity1);
             }
             else if (rb.getText().equals("Option 3"))
             {
-                iv.setImageResource(R.mipmap.parliament_hill);
+                // iv.setImageResource(R.mipmap.parliament_hill);
+                Intent activity2 = new Intent (MainActivity.this, Activity2.class);
+                startActivity(activity2);
             }
         }
     };
